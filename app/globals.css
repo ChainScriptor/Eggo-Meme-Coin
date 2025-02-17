@@ -19,3 +19,59 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Scroll gradient effect */
+.scroll-gradient {
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(155, 135, 245, 0.1) 20%,
+      rgba(155, 135, 245, 0.2) 40%,
+      rgba(155, 135, 245, 0.1) 60%,
+      transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-active {
+  opacity: 1;
+}
+
+/* Solana planet styles */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Solana planet styles using Tailwind CSS */
+.solana-planet {
+  @apply w-[150px] h-[150px] rounded-full bg-gradient-to-br from-[#9945FF] to-[#14F195] relative shadow-[0_0_60px_rgba(153, 69, 255, 0.3), 0_0_100px_rgba(20, 241, 149, 0.2)] animate-rotate duration-[20s] linear infinite;
+}
+
+.solana-planet::before {
+  content: '';
+  @apply absolute w-full h-full rounded-full bg-gradient-to-br from-transparent to-white/80 filter blur-sm;
+  animation: shine 4s ease-in-out infinite;
+}
