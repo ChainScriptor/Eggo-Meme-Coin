@@ -54,9 +54,9 @@ const HeroSection = () => {
                             <Image
                                 src="/eggo1.png"
                                 alt="Commander EGGO"
-                                className="w-96 h-96 object-contain floating"
-                                width={96}
-                                height={96}
+                                className=" object-contain floating"
+                                width={300}
+                                height={300}
                             />
                             <div className="space-debris"></div>
                         </div>
